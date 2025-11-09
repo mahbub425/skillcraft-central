@@ -4,6 +4,7 @@ import { Label } from '../../../ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../../ui/select';
 import { MultiSelect } from '../../../ui/multi-select';
 import { supabase } from '../../../../lib/supabase';
+import { CourseFormData } from '../../../../pages/admin/AdminCourseFormPage';
 import { CourseRow } from '../../../../lib/database.types';
 
 interface CourseDetailsSectionProps {
@@ -14,7 +15,7 @@ interface CourseDetailsSectionProps {
   price: number;
   discount_price: number | null;
   duration: string | null;
-  onFieldChange: (field: keyof CourseRow | 'category_ids', value: any) => void;
+  onFieldChange: (field: keyof CourseFormData, value: any) => void;
 }
 
 interface Category {

@@ -358,8 +358,8 @@ export function AdminCourseFormPage() {
       // 7. Handle Curriculum (Sections, Lessons, Resources)
       if (formData.course_type === 'recorded') {
         // Delete old sections/lessons/resources not present in new data
-        const existingSections = (await supabase.from('course_sections').select('id').eq('course_id', currentCourseId)).data?.map(s => (s as { id: string }).id) || [];
-        const sectionsToDelete = existingSections.filter(id => !formData.sections.some(s => s.id === id));
+        const existingSections = (await supabase.from('course_sections').select('id').eq('course_id', currentCourseId)).data?.map((s: { id: string }) => s.id) || [];
+        const sectionsToDelete = existingSections.filter((id: string) => !formData.sections.some(s => s.id === id));
         if (sectionsToDelete.length > 0) {
           await supabase.from('course_sections').delete().in('id', sectionsToDelete);
         }
@@ -392,8 +392,8 @@ export function AdminCourseFormPage() {
           if (!currentSectionId) throw new Error('Section ID not available after save.');
 
           // Delete old lessons/resources not present in new data
-          const existingLessons = (await supabase.from('course_lessons').select('id').eq('section_id', currentSectionId)).data?.map(l => (l as { id: string }).id) || [];
-          const lessonsToDelete = existingLessons.filter(id => !section.lessons.some(l => l.id === id));
+          const existingLessons = (await supabase.from('course_lessons').select('id').eq('section_id', currentSectionId)).data?.map((l: { id: string }) => l.id) || [];
+          const lessonsToDelete = existingLessons.filter((id: string) => !section.lessons.some(l => l.id === id));
           if (lessonsToDelete.length > 0) {
             await supabase.from('course_lessons').delete().in('id', lessonsToDelete);
           }
@@ -429,8 +429,8 @@ export function AdminCourseFormPage() {
             if (!currentLessonId) throw new Error('Lesson ID not available after save.');
 
             // Delete old resources not present in new data
-            const existingResources = (await supabase.from('lesson_resources').select('id').eq('lesson_id', currentLessonId)).data?.map(r => (r as { id: string }).id) || [];
-            const resourcesToDelete = existingResources.filter(id => !lesson.resources.some(r => r.id === id));
+            const existingResources = (await supabase.from('lesson_resources').select('id').eq('lesson_id', currentLessonId)).data?.map((r: { id: string }) => r.id) || [];
+            const resourcesToDelete = existingResources.filter((id: string) => !lesson.resources.some(r => r.id === id));
             if (resourcesToDelete.length > 0) {
               await supabase.from('lesson_resources').delete().in('id', resourcesToDelete);
             }

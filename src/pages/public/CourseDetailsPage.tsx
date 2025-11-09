@@ -93,7 +93,7 @@ export function CourseDetailsPage() {
         const sectionsArray = sectionsData || [];
         setSections(sectionsArray);
         // Fix for TS2339: Explicitly type 's' in reduce function or cast sectionsArray
-        lessonCount = sectionsArray.reduce((acc, s: any) => acc + (s.course_lessons?.length || 0), 0) || 0;
+        lessonCount = sectionsArray.reduce((acc: number, s: any) => acc + (s.course_lessons?.length || 0), 0) || 0;
       }
       setTotalLessons(lessonCount);
 

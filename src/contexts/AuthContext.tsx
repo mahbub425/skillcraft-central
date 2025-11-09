@@ -40,11 +40,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setIsLoading(false);
     };
 
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      checkAuth(session);
+    supabase.auth.getSession().then(({ data }: { data: { session: Session | null } }) => {
+      checkAuth(data.session);
     });
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event: string, session: Session | null) => {
       checkAuth(session);
     });
 

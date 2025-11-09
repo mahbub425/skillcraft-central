@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { X, CheckCircle, XCircle, Loader2, AlertCircle, User, DollarSign, FileText, MessageSquare } from 'lucide-react';
 import { supabase } from '../../../lib/supabase';
-import { PaymentsUpdate, EnrollmentsInsert, NotificationsInsert, PaymentRow, CoursesUpdate } from '../../../lib/database.types';
+import { PaymentsUpdate, EnrollmentsInsert, NotificationsInsert, PaymentRow } from '../../../lib/database.types';
 
 // Extend PaymentRow with course and profile details for display
 interface PaymentWithDetails extends PaymentRow {

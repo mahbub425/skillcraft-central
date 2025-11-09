@@ -2,12 +2,12 @@ import { ChangeEvent, useCallback } from 'react';
 import { Input } from '../../../ui/input';
 import { Label } from '../../../ui/label';
 import { Textarea } from '../../../ui/textarea';
-import { CourseRow } from '../../../../lib/database.types'; // Added CourseRow import
+import { CourseFormData } from '../../../../pages/admin/AdminCourseFormPage';
 
 interface SeoSectionProps {
   meta_title: string;
   meta_description: string;
-  onFieldChange: (field: keyof CourseRow, value: any) => void;
+  onFieldChange: (field: keyof CourseFormData, value: any) => void;
 }
 
 export function SeoSection({

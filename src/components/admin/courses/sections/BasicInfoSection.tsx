@@ -2,18 +2,19 @@ import { ChangeEvent, useCallback, useState, useEffect } from 'react';
 import { Input } from '../../../ui/input';
 import { Label } from '../../../ui/label';
 import { Textarea } from '../../../ui/textarea';
-import { Upload, XCircle } from 'lucide-react'; // Removed unused Image, Video
+import { Upload, XCircle } from 'lucide-react';
 import { slugify } from '../../../../utils/slugify';
 import { Button } from '../../../ui/button';
+import { CourseFormData } from '../../../../pages/admin/AdminCourseFormPage';
 
 interface BasicInfoSectionProps {
   title: string;
   slug: string;
-  short_description: string | null; // Allow null
-  full_description: string | null; // Allow null
-  thumbnail: string | null; // Allow null
-  preview_video: string | null; // Allow null
-  onFieldChange: (field: string, value: any) => void; // Changed field type to string
+  short_description: string | null;
+  full_description: string | null;
+  thumbnail: string | null;
+  preview_video: string | null;
+  onFieldChange: (field: keyof CourseFormData, value: any) => void;
 }
 
 export function BasicInfoSection({

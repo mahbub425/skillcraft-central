@@ -3,13 +3,14 @@ import { Label } from '../../../ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../../ui/select';
 import { Checkbox } from '../../../ui/checkbox';
 import { Button } from '../../../ui/button';
-import { Loader2 } from 'lucide-react'; // Removed unused Eye
+import { Loader2 } from 'lucide-react';
+import { CourseFormData } from '../../../../pages/admin/AdminCourseFormPage';
 import { CourseRow } from '../../../../lib/database.types';
 
 interface PublishingOptionsSectionProps {
   status: CourseRow['status'];
   is_featured: boolean;
-  onFieldChange: (field: keyof CourseRow, value: any) => void;
+  onFieldChange: (field: keyof CourseFormData, value: any) => void;
   onSave: () => void;
   onPublish: () => void;
   onCancel: () => void;

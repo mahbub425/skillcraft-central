@@ -94,7 +94,7 @@ export function AdminUsersPage() {
             banned_until: authInfo.banned_until || null,
           } as UserProfile;
         })
-        .filter((u): u is UserProfile => u !== null);
+        .filter((u: UserProfile | null): u is UserProfile => u !== null);
         
       setAllUsers(usersData);
     } catch (error: any) {

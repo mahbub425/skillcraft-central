@@ -3,17 +3,16 @@ import { Input } from '../../../ui/input';
 import { Label } from '../../../ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../../ui/select';
 import { Textarea } from '../../../ui/textarea';
-// Removed unused Button import
 import { Upload, XCircle } from 'lucide-react';
 import { supabase } from '../../../../lib/supabase';
-import { CourseRow } from '../../../../lib/database.types'; // Added CourseRow import
+import { CourseFormData } from '../../../../pages/admin/AdminCourseFormPage';
 
 interface InstructorSectionProps {
   instructor_id: string | null;
-  instructor_name?: string | null; // Allow null
+  instructor_name?: string | null;
   instructor_bio?: string | null;
   instructor_credentials?: string | null;
-  onFieldChange: (field: keyof CourseRow | 'instructor_name' | 'instructor_bio' | 'instructor_photo' | 'instructor_credentials', value: any) => void;
+  onFieldChange: (field: keyof CourseFormData, value: any) => void;
 }
 
 interface InstructorOption {
