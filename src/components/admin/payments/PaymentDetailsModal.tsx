@@ -44,7 +44,7 @@ export function PaymentDetailsModal({ payment, onClose, onActionSuccess }: Payme
 
       const { error: updatePaymentError } = await supabase
         .from('payments')
-        .update<PaymentsUpdate>(paymentUpdatePayload)
+        .update(paymentUpdatePayload)
         .eq('id', payment.id);
 
       if (updatePaymentError) throw updatePaymentError;
@@ -59,7 +59,7 @@ export function PaymentDetailsModal({ payment, onClose, onActionSuccess }: Payme
 
       const { error: createEnrollmentError } = await supabase
         .from('enrollments')
-        .insert<EnrollmentsInsert[]>([enrollmentPayload]);
+        .insert([enrollmentPayload]);
 
       if (createEnrollmentError) throw createEnrollmentError;
 
@@ -75,7 +75,7 @@ export function PaymentDetailsModal({ payment, onClose, onActionSuccess }: Payme
       const newEnrolledCount = (courseData?.enrolled_count || 0) + 1;
       const { error: updateCourseCountError } = await supabase
         .from('courses')
-        .update<CoursesUpdate>({ enrolled_count: newEnrolledCount })
+        .update({ enrolled_count: newEnrolledCount })
         .eq('id', payment.course_id);
 
       if (updateCourseCountError) throw updateCourseCountError;
@@ -91,7 +91,7 @@ export function PaymentDetailsModal({ payment, onClose, onActionSuccess }: Payme
 
       const { error: createNotificationError } = await supabase
         .from('notifications')
-        .insert<NotificationsInsert[]>([notificationPayload]);
+        .insert([notificationPayload]);
 
       if (createNotificationError) console.error('Error creating notification:', createNotificationError); // Log but don't block
 
@@ -124,7 +124,7 @@ export function PaymentDetailsModal({ payment, onClose, onActionSuccess }: Payme
 
       const { error: updatePaymentError } = await supabase
         .from('payments')
-        .update<PaymentsUpdate>(paymentUpdatePayload)
+        .update(paymentUpdatePayload)
         .eq('id', payment.id);
 
       if (updatePaymentError) throw updatePaymentError;
@@ -140,7 +140,7 @@ export function PaymentDetailsModal({ payment, onClose, onActionSuccess }: Payme
 
       const { error: createNotificationError } = await supabase
         .from('notifications')
-        .insert<NotificationsInsert[]>([notificationPayload]);
+        .insert([notificationPayload]);
 
       if (createNotificationError) console.error('Error creating notification:', createNotificationError); // Log but don't block
 
